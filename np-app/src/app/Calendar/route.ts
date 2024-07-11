@@ -6,7 +6,7 @@ export async function GET(request: Request) {
 
 	const CalendarPromise = new Promise((resolve, reject) => {
 		exec(
-			`python3 Excel_Automation.py`,
+			`source VPS/bin/activate && python3 Excel_Automation.py`,
 			// `"C:/Program Files/Python310/python.exe" Excel_Automation.py`,
 			(error, stdout, stderr) => {
 				if (error) {
