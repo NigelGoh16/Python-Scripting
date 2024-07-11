@@ -1,0 +1,48 @@
+{
+	"calendar" : [
+		{date: "Mon", month: "Mar 4", time: "01:30", currency: "(AUD)", event: "Building Approvals (MoM) (Jan)", actual: "-1.0%", forecast: "3.8%", previous: "-10.1%"},
+		{date: "Mon", month: "Mar 4", time: "08:30", currency: "(CHF)", event: "CPI (YoY) (Feb)", actual: "1.2%", forecast: "1.1%", previous: "1.3%"},
+		{date: "Mon", month: "Mar 4", time: "08:30", currency: "(CHF)", event: "CPI (MoM) (Feb)", actual: "0.6%", forecast: "0.5%", previous: "0.2%"},
+		{date: "Mon", month: "Mar 4", time: "17:00", currency: "(USD)", event: "FOMC Member Harker Speaks", actual: "", forecast: "", previous: ""},
+
+		{date: "Tue", month: "Mar 5", time: "10:00", currency: "(EUR)", event: "HCOB Eurozone Composite PMI (Feb)", actual: "", forecast: "48.9", previous: "48.9"},
+		{date: "Tue", month: "Mar 5", time: "10:00", currency: "(EUR)", event: "HCOB Eurozone Services PMI (Feb)", actual: "", forecast: "50.0", previous: "50.0"},
+		{date: "Tue", month: "Mar 5", time: "10:30", currency: "(GBP)", event: "S&P Global/CIPS UK Composite PMI (Feb)", actual: "", forecast: "53.3", previous: "53.3"},
+		{date: "Tue", month: "Mar 5", time: "10:30", currency: "(GBP)", event: "S&P Global/CIPS UK Services PMI (Feb)", actual: "", forecast: "54.3", previous: "54.3"},
+		{date: "Tue", month: "Mar 5", time: "15:45", currency: "(USD)", event: "S&P Global Composite PMI (Feb)", actual: "", forecast: "51.4", previous: "51.4"},
+		{date: "Tue", month: "Mar 5", time: "15:45", currency: "(USD)", event: "S&P Global Services PMI (Feb)", actual: "", forecast: "51.3", previous: "51.3"},
+		{date: "Tue", month: "Mar 5", time: "16:00", currency: "(USD)", event: "ISM Non-Manufacturing PMI (Feb)", actual: "", forecast: "52.9", previous: "53.4"},
+		{date: "Tue", month: "Mar 5", time: "16:00", currency: "(USD)", event: "ISM Non-Manufacturing Prices (Feb)", actual: "", forecast: "", previous: "64.0"},
+
+		{date: "Wed", month: "Mar 6", time: "01:30", currency: "(AUD)", event: "GDP (YoY) (Q4)", actual: "", forecast: "1.5%", previous: "2.1%"},
+		{date: "Wed", month: "Mar 6", time: "01:30", currency: "(AUD)", event: "GDP (QoQ) (Q4)", actual: "", forecast: "0.3%", previous: "0.2%"},
+		{date: "Wed", month: "Mar 6", time: "10:30", currency: "(GBP)", event: "S&P Global / CIPS UK Construction PMI (Feb)", actual: "", forecast: "49.0", previous: "48.8"},
+		{date: "Wed", month: "Mar 6", time: "11:00", currency: "(GBP)", event: "Spring Forecast Statement", actual: "", forecast: "", previous: ""},
+		{date: "Wed", month: "Mar 6", time: "14:15", currency: "(USD)", event: "ADP Nonfarm Employment Change (Feb)", actual: "", forecast: "145K", previous: "107K"},
+		{date: "Wed", month: "Mar 6", time: "14:30", currency: "(CAD)", event: "Labor Productivity (QoQ) (Q4)", actual: "", forecast: "-0.1%", previous: "-0.8%"},
+		{date: "Wed", month: "Mar 6", time: "15:45", currency: "(CAD)", event: "BoC Rate Statement", actual: "", forecast: "", previous: ""},
+		{date: "Wed", month: "Mar 6", time: "15:45", currency: "(CAD)", event: "BoC Interest Rate Decision", actual: "", forecast: "5.00%", previous: "5.00%"},
+		{date: "Wed", month: "Mar 6", time: "16:00", currency: "(USD)", event: "Fed Chair Powell Testifies", actual: "", forecast: "", previous: ""},
+		{date: "Wed", month: "Mar 6", time: "16:00", currency: "(USD)", event: "JOLTs Job Openings (Jan)", actual: "", forecast: "8.895M", previous: "9.026M"},
+		{date: "Wed", month: "Mar 6", time: "16:00", currency: "(CAD)", event: "Ivey PMI (Feb)", actual: "", forecast: "", previous: "56.5"},
+		{date: "Wed", month: "Mar 6", time: "16:30", currency: "(USD)", event: "Crude Oil Inventories", actual: "", forecast: "", previous: "4.199M"},
+
+		{date: "Thu", month: "Mar 7", time: "14:15", currency: "(EUR)", event: "ECB Monetary Policy Statement", actual: "", forecast: "", previous: ""},
+		{date: "Thu", month: "Mar 7", time: "14:15", currency: "(EUR)", event: "ECB Interest Rate Decision (Mar)", actual: "", forecast: "4.50%", previous: "4.50%"},
+		{date: "Thu", month: "Mar 7", time: "14:30", currency: "(USD)", event: "Initial Jobless Claims", actual: "", forecast: "212K", previous: "215K"},
+		{date: "Thu", month: "Mar 7", time: "14:45", currency: "(EUR)", event: "ECB Press Conference", actual: "", forecast: "", previous: ""},
+		{date: "Thu", month: "Mar 7", time: "16:00", currency: "(USD)", event: "Fed Chair Powell Testifies", actual: "", forecast: "", previous: ""},
+		{date: "Thu", month: "Mar 7", time: "16:00", currency: "(EUR)", event: "German Buba Balz Speaks", actual: "", forecast: "", previous: ""},
+		{date: "Thu", month: "Mar 7", time: "16:00", currency: "(EUR)", event: "ECB President Lagarde Speaks", actual: "", forecast: "", previous: ""},
+
+		{date: "Fri", month: "Mar 8", time: "11:00", currency: "(EUR)", event: "GDP (YoY) (Q4)", actual: "", forecast: "0.1%", previous: "0.0%"},
+		{date: "Fri", month: "Mar 8", time: "11:00", currency: "(EUR)", event: "GDP (QoQ) (Q4)", actual: "", forecast: "0.0%", previous: "-0.1%"},
+		{date: "Fri", month: "Mar 8", time: "13:00", currency: "(USD)", event: "FOMC Member Williams Speaks", actual: "", forecast: "", previous: ""},
+		{date: "Fri", month: "Mar 8", time: "14:30", currency: "(USD)", event: "Average Hourly Earnings (MoM) (Feb)", actual: "", forecast: "0.2%", previous: "0.6%"},
+		{date: "Fri", month: "Mar 8", time: "14:30", currency: "(USD)", event: "Nonfarm Payrolls (Feb)", actual: "", forecast: "190K", previous: "353K"},
+		{date: "Fri", month: "Mar 8", time: "14:30", currency: "(USD)", event: "Unemployment Rate (Feb)", actual: "", forecast: "3.7%", previous: "3.7%"},
+		{date: "Fri", month: "Mar 8", time: "14:30", currency: "(CAD)", event: "Unemployment Rate (Feb)", actual: "", forecast: "5.8%", previous: "5.7%"},
+		{date: "Fri", month: "Mar 8", time: "18:00", currency: "(USD)", event: "WASDE Report", actual: "", forecast: "", previous: ""},
+
+	]
+}
