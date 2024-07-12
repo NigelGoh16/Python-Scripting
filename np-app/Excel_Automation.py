@@ -112,5 +112,5 @@ def write_sentence_to_file(input_filename, output_filename):
 cur_path = os.getcwd()
 filename = "Calendar"
 output_filename = f"{filename}.json"
-input_filename = os.path.join(cur_path, f"{filename}.xlsx")
+input_filename = os.path.join(cur_path, "public", "assets", f"{filename}.xlsx")
 write_sentence_to_file(input_filename, output_filename)

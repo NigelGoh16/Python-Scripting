@@ -26,7 +26,7 @@ export const POST = async (req: Request, res: Response) => {
   try {
     // Write the file to the specified directory (public/assets) with the modified filename
     await writeFile(
-      path.join(process.cwd(), "public/assets/calendar.xlsx"),
+      path.join(process.cwd(), "public/assets/Calendar.xlsx"),
       buffer
     );
 
