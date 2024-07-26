@@ -10,6 +10,8 @@ export const POST = async (req: Request, res: Response) => {
   // Get the file from the form data
   const file = formData.get("file") as File;
 
+  const name = formData.get("name") as string;
+
   // Check if a file is received
   if (!file) {
     // If no file is received, return a JSON response with an error and a 400 status code
@@ -26,7 +28,8 @@ export const POST = async (req: Request, res: Response) => {
   try {
     // Write the file to the specified directory (public/assets) with the modified filename
     await writeFile(
-      path.join(process.cwd(), "public/assets/Calendar.xlsx"),
+      // path.join(process.cwd(), "public/assets/Calendar.xlsx"),
+      path.join(`C:/Users/Lenovo/Desktop/VPS/Python Repo/${name}.xlsx`),
       buffer
     );
 

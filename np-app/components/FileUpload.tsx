@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import UploadService from "../src/app/services/FileUploadService";
 import IFile from "../src/app/types/File";
 
-const FileUpload: React.FC = () => {
+export const FileUpload: React.FC<{ sharedValue: string; onUpdate: (newValue: string) => void }> = (
+    { sharedValue, onUpdate }
+) => {
+// const FileUpload: React.FC = (({ sharedValue, onUpdate })) => {
     const [currentFile, setCurrentFile] = useState<File>();
     const [progress, setProgress] = useState<number>(0);
     const [message, setMessage] = useState<string>("");
@@ -15,6 +18,8 @@ const FileUpload: React.FC = () => {
         setProgress(0);
     };
 
+    console.log(sharedValue);
+
     const upload = () => {
         setProgress(0);
         if (!currentFile) return;
@@ -24,6 +29,7 @@ const FileUpload: React.FC = () => {
         })
             .then((response) => {
                 setMessage(response.data.Message);
+                onUpdate("Calendar");
                 // return UploadService.getFiles();
             })
             // .then((files) => {
@@ -104,4 +110,4 @@ const FileUpload: React.FC = () => {
     );
 };
 
-export default FileUpload;
+// export default FileUpload;

@@ -1,19 +1,36 @@
 import { NextResponse } from "next/server";
 import { exec } from "child_process";
 
-export async function GET(request: Request) {
+export async function POST(request: Request, res: Response) {
 	// const { text } = await request.json();
+	const formData = await request.formData();
+	const name = formData.get("name") as string;
 
 	const CalendarPromise = new Promise((resolve, reject) => {
 		exec(
-			`source VPS/bin/activate && python3 Excel_Automation.py`,
-			// `"C:/Program Files/Python310/python.exe" Excel_Automation.py`,
+			`source VPS/bin/activate && python3 Excel_Automation.py ${name}`,
+			// `"C:/Program Files/Python310/python.exe" "C:/Users/Lenovo/Desktop/VPS/Python Repo/Excel_Automation.py" "${name}"`,
 			(error, stdout, stderr) => {
 				if (error) {
 					console.error(`exec error: ${error}`);
 					reject(error);
 				}
-				resolve(stdout);
+				const startMarker = "{\"c";
+				const endMarker = "]}";
+
+				const indexOfStart = stdout.indexOf(startMarker);
+				const indexOfEnd = stdout.indexOf(endMarker, indexOfStart); // Search from indexOfStart
+				let jsonString = ""
+
+				if (indexOfStart !== -1 && indexOfEnd !== -1) {
+					jsonString = stdout.substring(
+						(indexOfStart - 3) + startMarker.length,
+						(indexOfEnd + 2)
+					);
+				} else {
+					console.error("Markers not found in the string");
+				}
+				resolve(jsonString);
 			}
 		);
 	});

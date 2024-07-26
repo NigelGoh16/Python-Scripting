@@ -3,6 +3,7 @@ import http from "../http-common";
 const upload = (file: File, onUploadProgress: any): Promise<any> => {
   let formData = new FormData();
 
+  formData.append("name", "Calendar");
   formData.append("file", file);
 
   return http.post("/Upload", formData, {
