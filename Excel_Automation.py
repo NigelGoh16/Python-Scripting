@@ -123,8 +123,8 @@ filename = sys.argv[1]
 # filename = "Calendar"
 # C:\Users\Lenovo\Desktop\VPS\Python Repo\Calendar.xlsx
 output_filename = f"{filename}.txt"
-# input_filename = "/var/www/157.245.70.171/Calendar.xlsx"
-input_filename = "C:/Users/Lenovo/Desktop/VPS/Python Repo/Calendar.xlsx"
+input_filename = "/var/www/157.245.70.171/Calendar.xlsx"
+# input_filename = "C:/Users/Lenovo/Desktop/VPS/Python Repo/Calendar.xlsx"
 # input_filename = "../Calendar.xlsx"
 # input_filename = "Calendar.xlsx"
 
