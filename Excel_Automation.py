@@ -28,6 +28,7 @@ def write_sentence_to_file(input_filename, output_filename):
     # df = pd.read_excel(xl)
     df = pd.read_excel(input_filename, sheet_name=last_sheet, header = None)
     # df.drop(len(df.columns)-1, axis=1)
+    print("data", df)
     
     date = ""
     month = ""
@@ -116,6 +117,10 @@ filename = sys.argv[1]
 # filename = "Calendar"
 # C:\Users\Lenovo\Desktop\VPS\Python Repo\Calendar.xlsx
 output_filename = f"{filename}.json"
+# input_filename = "/var/www/157.245.70.171/Calendar.xlsx"
 input_filename = "C:/Users/Lenovo/Desktop/VPS/Python Repo/Calendar.xlsx"
+# input_filename = "../Calendar.xlsx"
+# input_filename = "Calendar.xlsx"
+
 # input_filename = os.path.join(f"{filename}.xlsx")
 write_sentence_to_file(input_filename, output_filename)

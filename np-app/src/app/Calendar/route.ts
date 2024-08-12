@@ -7,6 +7,7 @@ export async function POST(request: Request, res: Response) {
 	const name = formData.get("name") as string;
 
 	const CalendarPromise = new Promise((resolve, reject) => {
+		let jsonString = "";
 		exec(
 			`source VPS/bin/activate && python3 Excel_Automation.py ${name}`,
 			// `"C:/Program Files/Python310/python.exe" "C:/Users/Lenovo/Desktop/VPS/Python Repo/Excel_Automation.py" "${name}"`,
@@ -17,21 +18,27 @@ export async function POST(request: Request, res: Response) {
 				}
 				const startMarker = "{\"c";
 				const endMarker = "]}";
-
-				const indexOfStart = stdout.indexOf(startMarker);
-				const indexOfEnd = stdout.indexOf(endMarker, indexOfStart); // Search from indexOfStart
-				let jsonString = ""
-
-				if (indexOfStart !== -1 && indexOfEnd !== -1) {
-					jsonString = stdout.substring(
-						(indexOfStart - 3) + startMarker.length,
-						(indexOfEnd + 2)
-					);
-				} else {
-					console.error("Markers not found in the string");
-				}
-				resolve(jsonString);
+		(error, stdout, stderr) => {
+			if (error) {
+				console.error(`exec error: ${error}`);
+				reject(error);
 			}
+			const startMarker = '{\"c';
+			const endMarker = "]}";
+
+			const indexOfStart = stdout.indexOf(startMarker);
+			const indexOfEnd = stdout.indexOf(endMarker, indexOfStart); // Search from indexOfStart
+
+			if (indexOfStart !== -1 && indexOfEnd !== -1) {
+				jsonString = stdout.slice(
+					indexOfStart,
+					indexOfEnd + 2
+				);
+			} else {
+				console.error("Markers not found in the string");
+			}
+          	resolve(jsonString);
+		}
 		);
 	});
 
