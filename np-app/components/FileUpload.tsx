@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import UploadService from "../src/app/services/FileUploadService";
 import IFile from "../src/app/types/File";
+import React from "react";
 
 export const FileUpload: React.FC<{ sharedValue: string; onUpdate: (newValue: string) => void }> = (
     { sharedValue, onUpdate }
 ) => {
-// const FileUpload: React.FC = (({ sharedValue, onUpdate })) => {
+    // const FileUpload: React.FC = (({ sharedValue, onUpdate })) => {
     const [currentFile, setCurrentFile] = useState<File>();
     const [progress, setProgress] = useState<number>(0);
     const [message, setMessage] = useState<string>("");
@@ -55,15 +56,15 @@ export const FileUpload: React.FC<{ sharedValue: string; onUpdate: (newValue: st
     }, []);
 
     return (
-        <div>
-            <div className="row">
-                <div className="col-8">
+        <div className="flex flex-col items-center justify-center">
+            <div className="row flex flex-col items-center justify-center">
+                <div className="col-8 flex flex-col items-center justify-center">
                     <label className="btn btn-default p-0">
                         <input type="file" onChange={selectFile} />
                     </label>
                 </div>
 
-                <div className="col-4">
+                <div className="col-4 flex flex-col items-center justify-center">
                     <button
                         className="btn btn-success btn-sm"
                         disabled={!currentFile}
@@ -90,7 +91,7 @@ export const FileUpload: React.FC<{ sharedValue: string; onUpdate: (newValue: st
             )}
 
             {message && (
-                <div className="alert alert-secondary mt-3" role="alert">
+                <div className="alert alert-secondary mt-3 p-11" role="alert">
                     {message}
                 </div>
             )}

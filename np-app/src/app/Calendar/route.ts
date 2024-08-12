@@ -9,22 +9,18 @@ export async function POST(request: Request, res: Response) {
 	const CalendarPromise = new Promise((resolve, reject) => {
 		let jsonString = "";
 		exec(
-			`source VPS/bin/activate && python3 Excel_Automation.py ${name}`,
+			`. ./VPS/bin/activate && python3 Excel_Automation.py ${name}`,
 			// `"C:/Program Files/Python310/python.exe" "C:/Users/Lenovo/Desktop/VPS/Python Repo/Excel_Automation.py" "${name}"`,
-			(error, stdout, stderr) => {
-				if (error) {
-					console.error(`exec error: ${error}`);
-					reject(error);
-				}
-				const startMarker = "{\"c";
-				const endMarker = "]}";
+			// `"C:/ProgramData/Anaconda3/Scripts/activate.bat C:/Users/Lenovo/Desktop/VPS/Python Repo/Excel_Automation.py" "${name}"`,
+			// `"C:/ProgramData/Anaconda3/envs/FYPDash/python.exe" "../../Excel_Automation.py" "${name}"`,
 		(error, stdout, stderr) => {
 			if (error) {
 				console.error(`exec error: ${error}`);
 				reject(error);
 			}
-			const startMarker = '{\"c';
-			const endMarker = "]}";
+			console.log(stdout);
+			const startMarker = "{%";
+			const endMarker = "%}";
 
 			const indexOfStart = stdout.indexOf(startMarker);
 			const indexOfEnd = stdout.indexOf(endMarker, indexOfStart); // Search from indexOfStart

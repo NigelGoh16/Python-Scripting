@@ -51,7 +51,8 @@ def write_sentence_to_file(input_filename, output_filename):
         return variable
     
     with open(output_filename, "w") as f:
-        JSON_STRING = "{\"calendar\" : ["
+        # JSON_STRING = "{\"calendar\" : ["
+        JSON_STRING = "{% set calendar = ["
         # f.write("{% set calendar = [")
         for i in range(len(df)):
             # print(i)
@@ -76,9 +77,11 @@ def write_sentence_to_file(input_filename, output_filename):
                 elif df.loc[i][0] == "All Day":
                     nl = False
                     if (i == len(df) - 1): 
-                        JSON_STRING = JSON_STRING + "" + "{" + f"\"date\": \"{date}\", \"month\": \"{month}\", \"time\": \"{df.loc[i][0].strftime('%H:%M')}\", \"currency\": \"({currency})\", \"event\": \"{df.loc[i][2].strip()}\", \"actual\": \"{actual}\", \"forecast\": \"{forecast}\", \"previous\": \"{previous}\"" + "},"
+                        JSON_STRING = JSON_STRING + "\t" + "{" + f"date: \"{date}\", month: \"{month}\", time: \"{df.loc[i][0].strftime('%H:%M')}\", currency: \"({currency})\", event: \"{df.loc[i][2].strip()}\", actual: \"{actual}\", forecast: \"{forecast}\", previous: \"{previous}\"" + "},\n"
+                        # JSON_STRING = JSON_STRING + "" + "{" + f"\"date\": \"{date}\", \"month\": \"{month}\", \"time\": \"{df.loc[i][0].strftime('%H:%M')}\", \"currency\": \"({currency})\", \"event\": \"{df.loc[i][2].strip()}\", \"actual\": \"{actual}\", \"forecast\": \"{forecast}\", \"previous\": \"{previous}\"" + "},"
                     else:
-                        JSON_STRING = JSON_STRING + "" + "{" + f"\"date\": \"{date}\", \"month\": \"{month}\", \"time\": \"{df.loc[i][0].strftime('%H:%M')}\", \"currency\": \"({currency})\", \"event\": \"{df.loc[i][2].strip()}\", \"actual\": \"{actual}\", \"forecast\": \"{forecast}\", \"previous\": \"{previous}\"" + "},"
+                        JSON_STRING = JSON_STRING + "\t" + "{" + f"date: \"{date}\", month: \"{month}\", time: \"{df.loc[i][0].strftime('%H:%M')}\", currency: \"({currency})\", event: \"{df.loc[i][2].strip()}\", actual: \"{actual}\", forecast: \"{forecast}\", previous: \"{previous}\"" + "},\n"
+                        # JSON_STRING = JSON_STRING + "" + "{" + f"\"date\": \"{date}\", \"month\": \"{month}\", \"time\": \"{df.loc[i][0].strftime('%H:%M')}\", \"currency\": \"({currency})\", \"event\": \"{df.loc[i][2].strip()}\", \"actual\": \"{actual}\", \"forecast\": \"{forecast}\", \"previous\": \"{previous}\"" + "},"
                     # f.write("" + "{" + f"date: \"{date}\", month: \"{month}\", time: \"{df.loc[i][0]}\", currency: \"({currency})\", event: \"{df.loc[i][2].strip()}\", actual: \"{actual}\", forecast: \"{forecast}\", previous: \"{previous}\"" + "},")
                 else:
                     text = df.loc[i][0].split(", ")
@@ -92,12 +95,15 @@ def write_sentence_to_file(input_filename, output_filename):
             else:
                 nl = False
                 if (i == len(df) - 1): 
-                    JSON_STRING = JSON_STRING + "" + "{" + f"\"date\": \"{date}\", \"month\": \"{month}\", \"time\": \"{df.loc[i][0].strftime('%H:%M')}\", \"currency\": \"({currency})\", \"event\": \"{df.loc[i][2].strip()}\", \"actual\": \"{actual}\", \"forecast\": \"{forecast}\", \"previous\": \"{previous}\"" + "},"
+                    JSON_STRING = JSON_STRING + "\t" + "{" + f"date: \"{date}\", month: \"{month}\", time: \"{df.loc[i][0].strftime('%H:%M')}\", currency: \"({currency})\", event: \"{df.loc[i][2].strip()}\", actual: \"{actual}\", forecast: \"{forecast}\", previous: \"{previous}\"" + "},\n"
+                    # JSON_STRING = JSON_STRING + "" + "{" + f"\"date\": \"{date}\", \"month\": \"{month}\", \"time\": \"{df.loc[i][0].strftime('%H:%M')}\", \"currency\": \"({currency})\", \"event\": \"{df.loc[i][2].strip()}\", \"actual\": \"{actual}\", \"forecast\": \"{forecast}\", \"previous\": \"{previous}\"" + "},"
                 else:
-                    JSON_STRING = JSON_STRING + "" + "{" + f"\"date\": \"{date}\", \"month\": \"{month}\", \"time\": \"{df.loc[i][0].strftime('%H:%M')}\", \"currency\": \"({currency})\", \"event\": \"{df.loc[i][2].strip()}\", \"actual\": \"{actual}\", \"forecast\": \"{forecast}\", \"previous\": \"{previous}\"" + "},"
+                    JSON_STRING = JSON_STRING + "\t" + "{" + f"date: \"{date}\", month: \"{month}\", time: \"{df.loc[i][0].strftime('%H:%M')}\", currency: \"({currency})\", event: \"{df.loc[i][2].strip()}\", actual: \"{actual}\", forecast: \"{forecast}\", previous: \"{previous}\"" + "},\n"
+                    # JSON_STRING = JSON_STRING + "" + "{" + f"\"date\": \"{date}\", \"month\": \"{month}\", \"time\": \"{df.loc[i][0].strftime('%H:%M')}\", \"currency\": \"({currency})\", \"event\": \"{df.loc[i][2].strip()}\", \"actual\": \"{actual}\", \"forecast\": \"{forecast}\", \"previous\": \"{previous}\"" + "},"
                 # f.write("" + "{" + f"date: \"{date}\", month: \"{month}\", time: \"{df.loc[i][0].strftime('%H:%M')}\", currency: \"({currency})\", event: \"{df.loc[i][2].strip()}\", actual: \"{actual}\", forecast: \"{forecast}\", previous: \"{previous}\"" + "},")
         # f.write("] %}")
-        JSON_STRING = JSON_STRING[:-1] + "]}"
+        JSON_STRING = JSON_STRING + "] %}"
+        # JSON_STRING = JSON_STRING[:-1] + "]}"
         # JSON_CONVERTED = json.loads(JSON_STRING)
         # f.write(JSON_CONVERTED)
         # f.write(JSON_STRING)
@@ -116,7 +122,7 @@ python_filepath = sys.argv[0]
 filename = sys.argv[1]
 # filename = "Calendar"
 # C:\Users\Lenovo\Desktop\VPS\Python Repo\Calendar.xlsx
-output_filename = f"{filename}.json"
+output_filename = f"{filename}.txt"
 # input_filename = "/var/www/157.245.70.171/Calendar.xlsx"
 input_filename = "C:/Users/Lenovo/Desktop/VPS/Python Repo/Calendar.xlsx"
 # input_filename = "../Calendar.xlsx"

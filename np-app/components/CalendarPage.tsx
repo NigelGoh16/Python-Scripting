@@ -26,15 +26,34 @@ export const CalendarPage: React.FC<{ sharedValue: string }> = ({ sharedValue })
 			}
 		});
 		const { CalendarStatus } = await res.data;
-		// const { CalendarStatus } = await res.json();
-		setBlob(CalendarStatus);
-		console.log(sharedValue, BlobData);
-		var fileToSave = new Blob([CalendarStatus], {
-			type: 'application/json'
+
+		let textToSave = "";
+		if (typeof CalendarStatus !== 'string') {
+			textToSave = JSON.stringify(CalendarStatus); // Convert object to string
+		} else {
+			textToSave = CalendarStatus; // Already a string, use it directly
+		}
+
+		setBlob(textToSave); // Update the Blob state with the text content
+		console.log(sharedValue, textToSave); // Log the text content
+
+		var fileToSave = new Blob([textToSave], {
+			type: 'text/plain' // Set the content type to plain text
 		});
 
-		// Save the file
-		saveAs(fileToSave, `${sharedValue}.json`);
+		// Save the file as a txt file
+		saveAs(fileToSave, `${sharedValue}.txt`);
+
+		// const { CalendarStatus } = await res.json();
+		// setBlob(CalendarStatus);
+
+		// console.log(sharedValue, BlobData);
+		// var fileToSave = new Blob([CalendarStatus], {
+		// 	type: 'application/json'
+		// });
+
+		// // Save the file
+		// saveAs(fileToSave, `${sharedValue}.json`);
 	};
 	return (
 		<div className="flex flex-col items-center justify-center">
